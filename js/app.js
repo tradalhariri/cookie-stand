@@ -13,14 +13,17 @@ const LOCATIONS = [{
     },
     amountCookiesPerHour: function () {
       let amountCookies = [];
+      let obj={};
       for (let i = 0; i < hours.length; i++) {
-        let obj = {};
-        let key = hours[i];
-        obj[key]= Math.floor(this.randomCustomers(this.minCustomerPerHour, this.maxCustomerPerHour) * this.avgCookiesCustomer);
-        amountCookies.push(obj);
+        amountCookies.push( Math.floor(this.randomCustomers(this.minCustomerPerHour, this.maxCustomerPerHour) * this.avgCookiesCustomer));
       }
-      return amountCookies;
+      obj.cookies=amountCookies;
+      obj.total= amountCookies.reduce((acc,item)=>{
+        return acc+item;
+      },0);
+      return obj;
     },
+
 
   }
 },
@@ -39,14 +42,17 @@ const LOCATIONS = [{
     },
     amountCookiesPerHour: function () {
       let amountCookies = [];
+      let obj={};
       for (let i = 0; i < hours.length; i++) {
-        let obj = {};
-        let key = hours[i];
-        obj[key]= Math.floor(this.randomCustomers(this.minCustomerPerHour, this.maxCustomerPerHour) * this.avgCookiesCustomer);
-        amountCookies.push(obj);
+        amountCookies.push( Math.floor(this.randomCustomers(this.minCustomerPerHour, this.maxCustomerPerHour) * this.avgCookiesCustomer));
       }
-      return amountCookies;
-    }
+      obj.cookies=amountCookies;
+      obj.total= amountCookies.reduce((acc,item)=>{
+        return acc+item;
+      },0);
+      return obj;
+    },
+
   }
 
 
@@ -68,14 +74,17 @@ const LOCATIONS = [{
     },
     amountCookiesPerHour: function () {
       let amountCookies = [];
+      let obj={};
       for (let i = 0; i < hours.length; i++) {
-        let obj = {};
-        let key = hours[i];
-        obj[key]= Math.floor(this.randomCustomers(this.minCustomerPerHour, this.maxCustomerPerHour) * this.avgCookiesCustomer);
-        amountCookies.push(obj);
+        amountCookies.push( Math.floor(this.randomCustomers(this.minCustomerPerHour, this.maxCustomerPerHour) * this.avgCookiesCustomer));
       }
-      return amountCookies;
-    }
+      obj.cookies=amountCookies;
+      obj.total= amountCookies.reduce((acc,item)=>{
+        return acc+item;
+      },0);
+      return obj;
+    },
+
   }
 },
 
@@ -90,16 +99,21 @@ const LOCATIONS = [{
       let maximumCustomers = Math.floor(max);
       return Math.floor(Math.random() * (maximumCustomers - minimumCustomers + 1) + minimumCustomers);
     },
+
     amountCookiesPerHour: function () {
       let amountCookies = [];
+      let obj={};
       for (let i = 0; i < hours.length; i++) {
-        let obj = {};
-        let key = hours[i];
-        obj[key]= Math.floor(this.randomCustomers(this.minCustomerPerHour, this.maxCustomerPerHour) * this.avgCookiesCustomer);
-        amountCookies.push(obj);
+
+        amountCookies.push( Math.floor(this.randomCustomers(this.minCustomerPerHour, this.maxCustomerPerHour) * this.avgCookiesCustomer));
       }
-      return amountCookies;
-    }
+      obj.cookies=amountCookies;
+      obj.total= amountCookies.reduce((acc,item)=>{
+        return acc+item;
+      },0);
+      return obj;
+    },
+
   }
 },
 
@@ -116,14 +130,17 @@ const LOCATIONS = [{
     },
     amountCookiesPerHour: function () {
       let amountCookies = [];
+      let obj={};
       for (let i = 0; i < hours.length; i++) {
-        let obj = {};
-        let key = hours[i];
-        obj[key]= Math.floor(this.randomCustomers(this.minCustomerPerHour, this.maxCustomerPerHour) * this.avgCookiesCustomer);
-        amountCookies.push(obj);
+        amountCookies.push( Math.floor(this.randomCustomers(this.minCustomerPerHour, this.maxCustomerPerHour) * this.avgCookiesCustomer));
       }
-      return amountCookies;
-    }
+      obj.cookies=amountCookies;
+      obj.total= amountCookies.reduce((acc,item)=>{
+        return acc+item;
+      },0);
+      return obj;
+    },
+
   }
 
 }
@@ -132,24 +149,8 @@ const LOCATIONS = [{
 
 
 
-
-// LOCATIONS[0].Seatle.amountCookiesPerHour().values();
-// let summation = LOCATIONS[0].Seatle.amountCookiesPerHour().reduce((acc,item)=>{
-//     return acc+item;
-// },0);
-
-// console.log(LOCATIONS[0].Seatle.amountCookiesPerHour().values());
-// console.log(summation);
-
 let salesDiv = document.getElementById('sales');
 let keys = Object.keys(Object.assign({}, ...LOCATIONS));
-
-
-// let sum = LOCATIONS[0][keys[0]].amountCookiesPerHour().reduce((acc,item)=>{
-//   return acc+item;
-// },0);
-
-// console.log('sum '+sum);
 
 for(let i=0;i<LOCATIONS.length;i++){
   let locationDiv = document.createElement('div');
@@ -157,21 +158,15 @@ for(let i=0;i<LOCATIONS.length;i++){
   let locationH2 = document.createElement('h2');
   let locationHr = document.createElement('hr');
   locationH2.textContent = keys[i];
-  let total = 0;
   let locationTotal = document.createElement('li');
-  //   console.log('arr is '+LOCATIONS[i][keys[i]].amountCookiesPerHour());
-
-  for(let j =0;j<LOCATIONS[i][keys[i]].amountCookiesPerHour().length;j++){
+  locationDiv.appendChild(locationH2);
+  let cookiesAndTotal = LOCATIONS[i][keys[i]].amountCookiesPerHour();
+  for(let j =0;j<hours.length;j++){
     let locationLi = document.createElement('li');
-    // console.log(LOCATIONS[i][keys[i]].amountCookiesPerHour()[j][`${j+6}`]);
-    total+= LOCATIONS[i][keys[i]].amountCookiesPerHour()[j][hours[j]];
-    // console.log('num is '+LOCATIONS[i][keys[i]].amountCookiesPerHour()[j][hours[j]]);
-    // console.log('total is '+total);
-    locationLi.textContent = hours[j]+' : ' +LOCATIONS[i][keys[i]].amountCookiesPerHour()[j][hours[j]]+' Cookies';
+    locationLi.textContent = hours[j]+' : ' +cookiesAndTotal.cookies[j]+' Cookies';
     locationUl.appendChild(locationLi);
   }
-  locationDiv.appendChild(locationH2);
-  locationTotal.textContent= 'Total : '+total+' Cookies';
+  locationTotal.textContent= 'Total : '+cookiesAndTotal.total+' Cookies';
   locationUl.appendChild(locationTotal);
 
 

@@ -35,30 +35,27 @@ body{
 
 
 
-/* .text-box{
+ .box-text{
     position: absolute;
-    top: 40%;
-    left: 50%;
+    top: 10vh;
+    left: 90%;
     transform: translate(-50%,-50%);
     text-align: center;
+    padding: 20px;
 }
 
-.heading-primary{
-    text-transform: uppercase;
-    color: #fff;
-  
-}
-.heading-primary-main{
-display: block;
-letter-spacing: 36px;
-font-size: 30px;
-font-weight: 400;
-margin-bottom: 60px;
+.sales-link:link,.sales-link:visited{
+    text-decoration: none;
+    display: block;
+    border-radius: 35%;
+    font-size: 40px;
+    background-color: rgb(3, 3, 3);
+    color: white;
+    padding: 20px;
+
 }
 
-.heading-primary-sub{
-display: block;
-letter-spacing: 60.4px;
-font-weight:700 ;
-font-size: 20px;
-} */
+.sales-link:hover,.sales-link:active{
+    background-color: #fff;
+    color: rgb(3, 3, 3);
+}
