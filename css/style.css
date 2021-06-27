@@ -1,0 +1,64 @@
+
+ul{
+    list-style-type: disc;
+    padding: 20px 40px;
+}
+h2{
+    font-size: 40px;
+    padding: 0 40px;
+    margin-top: 20px;
+}
+
+
+body{
+    /* background-color: #C84B31; */
+    color: #777;
+    
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.7;
+    background-color: rgba(242, 208, 107, 0.993);
+
+}
+
+.header{
+ position: relative;
+ height: 95vh;
+ background-image:url(../images/salmon.png),linear-gradient(to bottom right,rgba(0, 129, 185, 0.856),rgba(212, 241, 249, 0.801));
+ clip-path: polygon(0 0,100% 0, 100% 95vh,0 100%);
+ background-size: contain;
+ background-position:center ;
+ background-repeat: no-repeat;
+ box-shadow: 0px 2px 2px  #E1E8EB;
+}
+
+
+
+/* .text-box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.heading-primary{
+    text-transform: uppercase;
+    color: #fff;
+  
+}
+.heading-primary-main{
+display: block;
+letter-spacing: 36px;
+font-size: 30px;
+font-weight: 400;
+margin-bottom: 60px;
+}
+
+.heading-primary-sub{
+display: block;
+letter-spacing: 60.4px;
+font-weight:700 ;
+font-size: 20px;
+} */
