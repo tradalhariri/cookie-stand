@@ -29,6 +29,7 @@ Store.prototype.amountCookiesPerHour = function(){
 
 function createTableBody(table){
   let list = [];
+  let TotalOfTotal = 0;
   for(let i =0;i<stores.length;i++){
     let tr = document.createElement('tr');
     let th = document.createElement('th');
@@ -45,6 +46,7 @@ function createTableBody(table){
     }
     let tdTotal = document.createElement('td');
     tdTotal.textContent= amountCookiesPerHour.total;
+    TotalOfTotal+= amountCookiesPerHour.total;
     tr.appendChild(tdTotal);
     table.appendChild(tr);
   }
@@ -60,6 +62,9 @@ function createTableBody(table){
     tdColumn.textContent = sums[k];
     trColumn.appendChild(tdColumn);
   }
+  let tdTotal = document.createElement('td');
+  tdTotal.textContent = TotalOfTotal;
+  trColumn.appendChild(tdTotal);
   table.appendChild(trColumn);
 }
 
@@ -81,6 +86,8 @@ function createTableHeader(table){
   table.appendChild(tr);
 
 }
+
+
 let salesDiv = document.getElementById('sales');
 let table = document.createElement('table');
 salesDiv.appendChild(table);
